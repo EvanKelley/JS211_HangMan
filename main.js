@@ -1,9 +1,9 @@
 // list words to be chosen from
 const words = ["goblin", "banshee", "ghouls", "sabre", "turtle", "sorcery", "ashes", "empire", "ruinous"];
 
-// choose random word from words list
+// choose random word from words
 const randomWord = words[Math.floor(Math.random() * words.length)];
-// create empty array for guessed letters to be stored in
+// create empty array for guessed letters
 const guessedLetters = [];
 
 // 
@@ -33,10 +33,12 @@ function checkWin(word, guessedLetters) {
 
 function playGame() {
   let incorrectGuesses = 0;
-
+  console.log("playGame function is running!");
   // create input element and add event listener
   const inputElement = document.createElement("input");
   inputElement.type = "text";
+  inputElement.style.backgroundColor = "red";
+  inputElement.style.color = "white";
   inputElement.addEventListener("keyup", function(event) {
     if (event.key === "Enter") {
       const guess = inputElement.value;
@@ -58,14 +60,9 @@ function playGame() {
   const inputContainer = document.getElementById("input-container");
   inputContainer.appendChild(inputElement);
 
-  // call displayState to display initial state of game
+  // call displayState to display initial state of game ??? 
   displayState(randomWord, guessedLetters, incorrectGuesses);
 }
-
-
-// inputElement.style.padding = "10px";
-// inputElement.style.margin = "10px";
-// inputElement.style.border = "1px solid gray";
 
 
 // call function
